@@ -1,0 +1,136 @@
+body {
+  font-size: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  text-align: center;
+  width: 75%;
+}
+
+.split-container {
+  width: fit-content;
+  position: relative;
+  top: 0;
+  margin: 0 auto;
+  height: 50%;
+}
+
+.split {
+  position: relative;
+  display: block; 
+  margin: auto;
+  transition: 1.5s ease;
+  margin: 0 auto;
+}
+
+.top {
+/*   clip-path: inset(0 0 50% 0); */
+/*   clip-path: polygon(0 0, 100% 0, 0 100%); */
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 5%,
+    0 95%
+  );
+  bottom: -50%;
+  left: 0%;
+}
+
+.bottom {
+/*   clip-path: inset(50% 0 0 0); */
+/*   clip-path: polygon(0 100%, 100% 0, 100% 100%); */
+  clip-path: polygon(
+    0 95%,
+    100% 5%,
+    100% 100%,
+    0 100%
+  );
+  top: -50%;
+  right: 0;
+}
+
+.container:hover .top {
+  bottom: -25%;
+  left: -5%;
+  color: coral;
+}
+
+.container:hover .bottom {
+  top: -25%;
+  right: -5%;
+  color: lightskyblue;
+}
+
+/* When we angled */
+[class^="decoration"] {
+  transition: 1.5s ease;
+  position: absolute;
+  width: 0%;
+  height: 0%;
+}
+
+.container:hover [class^="decoration"] {
+  width: 100%;
+  height: 100%;
+}
+
+.decoration-top {
+  left: 0%;
+  bottom: -50%;
+  clip-path: polygon(
+    0 95%,
+    100% 5%,
+    100% 10%,
+    0 100%
+  );
+  background-color: coral;
+}
+
+.container:hover .decoration-top {
+  left: -5%;
+  bottom: -25%
+}
+
+.decoration-bottom {
+  right: 0%;
+  top: -50%;
+  clip-path: polygon(
+    0 90%,
+    100% 0,
+    100% 5%,
+    0 95%
+  );
+  background-color: lightskyblue;
+}
+
+.container:hover .decoration-bottom {
+  right: -5%;
+  top: -25%
+}
+
+/* When we boxy  */
+.bisect {
+  border: none;
+  transition: 1.5s ease;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.container:hover .bisect {
+  border-top: 4px solid coral;
+  border-bottom: 4px solid lightskyblue;
+  width: 50%;
+  height: 8%;
+  left: 25%;
+  top: 46%
+}
